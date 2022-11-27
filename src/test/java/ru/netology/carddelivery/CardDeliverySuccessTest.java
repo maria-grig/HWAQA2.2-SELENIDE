@@ -17,7 +17,7 @@ public class CardDeliverySuccessTest {
     @BeforeEach
     void setUpAll() {
         Configuration.holdBrowserOpen = true;
-        open("http://localhost:9999");
+        open("http://localhost:7777");
     }
 
     public String generateDate(int days) {
