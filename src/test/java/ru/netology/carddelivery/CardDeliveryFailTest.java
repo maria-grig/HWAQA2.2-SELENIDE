@@ -1,6 +1,5 @@
 package ru.netology.carddelivery;
 
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -25,7 +24,6 @@ public class CardDeliveryFailTest {
     public String generateDate(int days) {
         return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
-
 
 
     @Test
