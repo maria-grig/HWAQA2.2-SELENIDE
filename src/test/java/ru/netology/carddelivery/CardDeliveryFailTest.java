@@ -67,7 +67,7 @@ public class CardDeliveryFailTest {
         $("[data-test-id=phone] input").setValue("+78009008070").pressTab();
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
-        $("[data-test-id='name'].input_invalid .input__sub")
+        $("[data-test-id='name'] .input__sub")
                 .shouldBe(visible)
                 .shouldHave(text("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
@@ -83,7 +83,9 @@ public class CardDeliveryFailTest {
         $("[data-test-id=phone] input").setValue("+7800900807").pressTab();
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
-        $("[data-test-id=date] .input_invalid").shouldBe(visible).shouldHave(text("Успешно!"));
+        $("[data-test-id=phone] .input__sub")
+                .shouldBe(visible)
+                .shouldHave(text("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
     @Test
@@ -96,6 +98,6 @@ public class CardDeliveryFailTest {
         $("[data-test-id=name] input").setValue("Мария Петрова").pressTab();
         $("[data-test-id=phone] input").setValue("+7800900807").pressTab();
         $(".button__text").click();
-        $("[data-test-id=agreement].input_invalid").shouldBe(visible);
+        $("[data-test-id=agreement] .checkbox__box").shouldBe(visible);
     }
 }
