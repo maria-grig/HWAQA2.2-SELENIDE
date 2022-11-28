@@ -74,7 +74,7 @@ public class CardDeliveryFailTest {
     }
 
     @Test
-    void shouldNotPostInvalidPhone() {
+    void shouldFailInvalidPhone() {
         String Date = generateDate(5);
         $("[data-test-id=city] input").setValue("Москва").pressTab();
         $("[data-test-id=date] .input__control");

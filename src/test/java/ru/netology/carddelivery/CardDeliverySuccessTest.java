@@ -16,6 +16,7 @@ public class CardDeliverySuccessTest {
 
     @BeforeEach
     void setUpAll() {
+        Configuration.timeout = 10_000;
         Configuration.holdBrowserOpen = true;
         open("http://localhost:9999");
     }
