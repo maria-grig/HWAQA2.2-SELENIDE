@@ -35,7 +35,9 @@ public class CardDeliveryFailTest {
         $("[data-test-id=phone] input").setValue("+78009008070").pressTab();
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
-        $("[data-test-id=date] .input_invalid").shouldBe(visible).shouldHave(text("Успешно!"));
+        $("[data-test-id=date] .input__sub")
+                .shouldBe(visible)
+                .shouldHave(text("Заказ на выбранную дату невозможен"));
     }
 
     @Test
