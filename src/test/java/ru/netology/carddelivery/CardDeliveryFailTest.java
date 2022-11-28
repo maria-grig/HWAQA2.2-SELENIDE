@@ -17,7 +17,7 @@ public class CardDeliveryFailTest {
     @BeforeEach
     void setUpAll() {
         Configuration.holdBrowserOpen = true;
-        open("http://localhost:7777");
+        open("http://localhost:9999");
     }
 
     public String generateDate(int days) {
@@ -63,7 +63,9 @@ public class CardDeliveryFailTest {
         $("[data-test-id=phone] input").setValue("+78009008070").pressTab();
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
-        $("[data-test-id=date] .input_invalid").shouldBe(visible).shouldHave(text("Успешно!"));
+        $("[data-test-id='name'].input_invalid .input__sub")
+                .shouldBe(visible)
+                .shouldHave(text("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
     @Test
