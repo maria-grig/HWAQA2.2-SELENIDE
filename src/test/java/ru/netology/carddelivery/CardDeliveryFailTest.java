@@ -17,13 +17,18 @@ public class CardDeliveryFailTest {
 
     @BeforeEach
     void setUpAll() {
-        Configuration.timeout = 10_000;
         open("http://localhost:9999");
+    }
+    @BeforeEach
+    void setUp() {
+        Configuration.timeout = 10_000;
     }
 
     public String generateDate(int days) {
         return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
+
+
 
     @Test
     void shouldFailInvalidDate() {
