@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -17,11 +18,8 @@ public class CardDeliveryFailTest {
 
     @BeforeEach
     void setUpAll() {
+
         open("http://localhost:9999");
-    }
-    @BeforeEach
-    void setUp() {
-        Configuration.timeout = 10_000;
     }
 
     public String generateDate(int days) {
@@ -42,7 +40,7 @@ public class CardDeliveryFailTest {
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         $("[data-test-id=date] .input__sub")
-                .shouldBe(visible)
+                .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(text("Заказ на выбранную дату невозможен"));
     }
 
@@ -58,7 +56,7 @@ public class CardDeliveryFailTest {
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         $("[data-test-id=city] .input__sub")
-                .shouldBe(visible)
+                .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(text("Доставка в выбранный город недоступна"));
     }
 
@@ -74,7 +72,7 @@ public class CardDeliveryFailTest {
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         $("[data-test-id='name'] .input__sub")
-                .shouldBe(visible)
+                .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(text("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
     }
 
@@ -90,7 +88,7 @@ public class CardDeliveryFailTest {
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         $("[data-test-id=phone] .input__sub")
-                .shouldBe(visible)
+                .shouldBe(visible, Duration.ofSeconds(15))
                 .shouldHave(text("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
@@ -104,6 +102,6 @@ public class CardDeliveryFailTest {
         $("[data-test-id=name] input").setValue("Мария Петрова").pressTab();
         $("[data-test-id=phone] input").setValue("+7800900807").pressTab();
         $(".button__text").click();
-        $("[data-test-id=agreement] .checkbox__box").shouldBe(visible);
+        $("[data-test-id=agreement] .checkbox__box").shouldBe(visible, Duration.ofSeconds(15));
     }
 }

@@ -10,13 +10,14 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CardDeliverySuccessTest {
 
     @BeforeEach
     void setUpAll() {
-        Configuration.timeout = 10_000;
         open("http://localhost:9999");
     }
 
@@ -34,8 +35,9 @@ public class CardDeliverySuccessTest {
         $("[data-test-id='phone'] input").setValue("+79001112233").pressTab();
         $$("[data-test-id='agreement']").last().click();
         $(".button__text").click();
-        $(".notification__content").shouldHave(Condition.text("Встреча успешно забронирована на " + Date), Duration.ofSeconds(15))
-                .shouldBe(Condition.visible);
+        $(".notification__content")
+                .shouldBe(visible, Duration.ofSeconds(15))
+                .shouldHave(text("Встреча успешно забронирована на " + Date));
     }
 
     @Test
@@ -48,8 +50,10 @@ public class CardDeliverySuccessTest {
         $("[data-test-id='phone'] input").setValue("+79000000000").pressTab();
         $$("[data-test-id='agreement']").last().click();
         $(".button__text").click();
-        $(".notification__content").shouldHave(Condition.text("Встреча успешно забронирована на " + Date), Duration.ofSeconds(15))
-                .shouldBe(Condition.visible);
+        $(".notification__content")
+                .shouldBe(visible, Duration.ofSeconds(15))
+                .shouldHave(text("Встреча успешно забронирована на " + Date));
+
     }
 
     @Test
@@ -62,8 +66,10 @@ public class CardDeliverySuccessTest {
         $("[data-test-id='phone'] input").setValue("+79000000000").pressTab();
         $$("[data-test-id='agreement']").last().click();
         $(".button__text").click();
-        $(".notification__content").shouldHave(Condition.text("Встреча успешно забронирована на " + Date), Duration.ofSeconds(15))
-                .shouldBe(Condition.visible);
+        $(".notification__content")
+                .shouldBe(visible, Duration.ofSeconds(15))
+                .shouldHave(Condition.text("Встреча успешно забронирована на " + Date));
+
     }
 
 }
