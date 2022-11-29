@@ -84,12 +84,12 @@ public class CardDeliveryFailTest {
         $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
         $("[data-test-id=date] .input__control").setValue(Date).pressTab();
         $("[data-test-id=name] input").setValue("Мария Петрова").pressTab();
-        $("[data-test-id=phone] input").setValue("").pressTab();
+        $("[data-test-id=phone] input").setValue("+100").pressTab();
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         $("[data-test-id=phone] .input__sub")
                 .shouldBe(visible, Duration.ofSeconds(15))
-                .shouldHave(text("Поле обязательно для заполнения"));
+                .shouldHave(text("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
     }
 
     @Test
