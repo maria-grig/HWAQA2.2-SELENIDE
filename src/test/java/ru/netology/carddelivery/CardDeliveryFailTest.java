@@ -2,7 +2,6 @@ package ru.netology.carddelivery;
 
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -20,7 +19,7 @@ public class CardDeliveryFailTest {
 
     @BeforeEach
     void setUpAll() {
-        Configuration.browser= Browsers.CHROME;
+        Configuration.browser= Browsers.FIREFOX;
         open("http://localhost:9999");
     }
 
