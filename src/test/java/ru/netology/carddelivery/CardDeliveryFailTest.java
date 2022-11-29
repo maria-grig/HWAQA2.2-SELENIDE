@@ -2,9 +2,12 @@ package ru.netology.carddelivery;
 
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -17,9 +20,13 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CardDeliveryFailTest {
 
+    private WebDriver driver;
+
     @BeforeEach
     void setUpAll() {
-        Configuration.browser= Browsers.FIREFOX;
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+//        Configuration.browser= Browsers.CHROME;
         open("http://localhost:9999");
     }
 
@@ -62,7 +69,7 @@ public class CardDeliveryFailTest {
 
     @Test
     void shouldFailInvalidName() {
-        String Date = generateDate(4);
+        String Date = generateDate(5);
         $("[data-test-id=city] input").setValue("Москва").pressTab();
         $("[data-test-id=date] .input__control");
         $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
@@ -78,13 +85,13 @@ public class CardDeliveryFailTest {
 
     @Test
     void shouldFailInvalidPhone() {
-        String Date = generateDate(5);
+        String Date = generateDate(8);
         $("[data-test-id=city] input").setValue("Москва").pressTab();
         $("[data-test-id=date] .input__control");
         $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
         $("[data-test-id=date] .input__control").setValue(Date).pressTab();
         $("[data-test-id=name] input").setValue("Мария Петрова").pressTab();
-        $("[data-test-id=phone] input").setValue("+7800900807").pressTab();
+        $("[data-test-id=phone] input").setValue("").pressTab();
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         $("[data-test-id=phone] .input__sub")
