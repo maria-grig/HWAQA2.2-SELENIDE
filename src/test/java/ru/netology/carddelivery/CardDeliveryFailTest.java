@@ -1,5 +1,6 @@
 package ru.netology.carddelivery;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
@@ -17,7 +18,7 @@ public class CardDeliveryFailTest {
 
     @BeforeEach
     void setUpAll() {
-
+        WebDriverManager.chromedriver().setup();
         open("http://localhost:9999");
     }
 
@@ -66,7 +67,7 @@ public class CardDeliveryFailTest {
         $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
         $("[data-test-id=date] .input__control").setValue(Date).pressTab();
         $("[data-test-id=name] input").setValue("Maria Petrova").pressTab();
-        $("[data-test-id=phone] input").setValue("+78009008070").pressTab();
+        $("[data-test-id=phone] input").setValue("+780090080").pressTab();
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         $("[data-test-id='name'] .input__sub")
