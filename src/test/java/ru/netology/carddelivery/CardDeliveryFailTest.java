@@ -20,12 +20,12 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CardDeliveryFailTest {
 
-    private WebDriver driver;
+//    private WebDriver driver;
 
     @BeforeEach
     void setUpAll() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
 //        Configuration.browser= Browsers.CHROME;
         open("http://localhost:9999");
     }
