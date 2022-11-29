@@ -18,7 +18,7 @@ public class CardDeliveryFailTest {
 
     @BeforeEach
     void setUpAll() {
-        WebDriverManager.chromedriver().setup();
+
         open("http://localhost:9999");
     }
 
