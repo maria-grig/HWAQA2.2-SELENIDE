@@ -1,13 +1,9 @@
 package ru.netology.carddelivery;
 
-import com.codeborne.selenide.Browsers;
-import com.codeborne.selenide.Configuration;
-import io.github.bonigarcia.wdm.WebDriverManager;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -20,13 +16,10 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class CardDeliveryFailTest {
 
-//    private WebDriver driver;
 
     @BeforeEach
     void setUpAll() {
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//        Configuration.browser= Browsers.CHROME;
+
         open("http://localhost:9999");
     }
 
@@ -84,7 +77,7 @@ public class CardDeliveryFailTest {
     }
 
     @Test
-    void shouldFailInvalidPhone() {
+    void shouldFailWithoutPhone() {
         String Date = generateDate(8);
         $("[data-test-id=city] input").setValue("Москва").pressTab();
         $("[data-test-id=date] .input__control");
@@ -96,7 +89,7 @@ public class CardDeliveryFailTest {
         $(".button__text").click();
         $("[data-test-id=phone] .input__sub")
                 .shouldBe(visible, Duration.ofSeconds(15))
-                .shouldHave(text("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
+                .shouldHave(text("Поле обязательно для заполнения"));
     }
 
     @Test
