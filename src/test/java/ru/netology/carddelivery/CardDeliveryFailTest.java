@@ -30,11 +30,11 @@ public class CardDeliveryFailTest {
 
     @Test
     void shouldFailInvalidDate() {
-        String Date = generateDate(2);
+        String date = generateDate(2);
         $("[data-test-id=city] input").setValue("Москва").pressTab();
         $("[data-test-id=date] .input__control");
         $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
-        $("[data-test-id=date] .input__control").setValue(Date).pressTab();
+        $("[data-test-id=date] .input__control").setValue(date).pressTab();
         $("[data-test-id=name] input").setValue("Мария Петрова").pressTab();
         $("[data-test-id=phone] input").setValue("+78009008070").pressTab();
         $("[data-test-id=agreement]").click();
@@ -46,11 +46,11 @@ public class CardDeliveryFailTest {
 
     @Test
     void shouldFailInvalidCity() {
-        String Date = generateDate(4);
+        String date = generateDate(4);
         $("[data-test-id=city] input").setValue("Париж").pressTab();
         $("[data-test-id=date] .input__control");
         $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
-        $("[data-test-id=date] .input__control").setValue(Date).pressTab();
+        $("[data-test-id=date] .input__control").setValue(date).pressTab();
         $("[data-test-id=name] input").setValue("Мария Петрова").pressTab();
         $("[data-test-id=phone] input").setValue("+78009008070").pressTab();
         $("[data-test-id=agreement]").click();
@@ -62,11 +62,11 @@ public class CardDeliveryFailTest {
 
     @Test
     void shouldFailInvalidName() {
-        String Date = generateDate(5);
+        String date = generateDate(5);
         $("[data-test-id=city] input").setValue("Москва").pressTab();
         $("[data-test-id=date] .input__control");
         $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
-        $("[data-test-id=date] .input__control").setValue(Date).pressTab();
+        $("[data-test-id=date] .input__control").setValue(date).pressTab();
         $("[data-test-id=name] input").setValue("Maria Petrova").pressTab();
         $("[data-test-id=phone] input").setValue("+780090080").pressTab();
         $("[data-test-id=agreement]").click();
@@ -78,11 +78,11 @@ public class CardDeliveryFailTest {
 
     @Test
     void shouldFailWithoutPhone() {
-        String Date = generateDate(8);
+        String date = generateDate(8);
         $("[data-test-id=city] input").setValue("Москва").pressTab();
         $("[data-test-id=date] .input__control");
         $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
-        $("[data-test-id=date] .input__control").setValue(Date).pressTab();
+        $("[data-test-id=date] .input__control").setValue(date).pressTab();
         $("[data-test-id=name] input").setValue("Мария Петрова").pressTab();
         $("[data-test-id=phone] input").setValue("+100").pressTab();
         $("[data-test-id=agreement]").click();
@@ -94,11 +94,11 @@ public class CardDeliveryFailTest {
 
     @Test
     void shouldFailWithoutAgreement() {
-        String Date = generateDate(6);
+        String date = generateDate(6);
         $("[data-test-id=city] input").setValue("Москва").pressTab();
         $("[data-test-id=date] .input__control");
         $("[data-test-id=date] .input__control").sendKeys(Keys.BACK_SPACE);
-        $("[data-test-id=date] .input__control").setValue(Date).pressTab();
+        $("[data-test-id=date] .input__control").setValue(date).pressTab();
         $("[data-test-id=name] input").setValue("Мария Петрова").pressTab();
         $("[data-test-id=phone] input").setValue("+7800900807").pressTab();
         $(".button__text").click();
